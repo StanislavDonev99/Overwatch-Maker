@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="OverwatchDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Ability">
+          <Key>
+            <PropertyRef Name="AbilityID" />
+          </Key>
+          <Property Name="AbilityID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="text" Nullable="false" />
+          <Property Name="Duration" Type="float" />
+          <Property Name="Strenght" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Hero">
+          <Key>
+            <PropertyRef Name="HeroID" />
+          </Key>
+          <Property Name="HeroID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Role" Type="nchar" MaxLength="10" />
+          <Property Name="WeaponID" Type="int" Nullable="false" />
+          <Property Name="AbilityID" Type="int" Nullable="false" />
+          <Property Name="Health" Type="int" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Weapon">
+          <Key>
+            <PropertyRef Name="WeaponID" />
+          </Key>
+          <Property Name="WeaponID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Type" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Ammo" Type="tinyint" />
+          <Property Name="ReloadTime" Type="float" />
+          <Property Name="Damage/Heal" Type="int" Nullable="false" />
+          <Property Name="Image" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_dbo_Hero_dbo_Ability_AbilityID">
+          <End Role="Ability" Type="Self.Ability" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Hero" Type="Self.Hero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ability">
+              <PropertyRef Name="AbilityID" />
+            </Principal>
+            <Dependent Role="Hero">
+              <PropertyRef Name="AbilityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Hero_dbo_Weapon_WeaponID">
+          <End Role="Weapon" Type="Self.Weapon" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Hero" Type="Self.Hero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Weapon">
+              <PropertyRef Name="WeaponID" />
+            </Principal>
+            <Dependent Role="Hero">
+              <PropertyRef Name="WeaponID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OverwatchDBModelStoreContainer">
+          <EntitySet Name="Ability" EntityType="Self.Ability" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Hero" EntityType="Self.Hero" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Weapon" EntityType="Self.Weapon" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_Hero_dbo_Ability_AbilityID" Association="Self.FK_dbo_Hero_dbo_Ability_AbilityID">
+            <End Role="Ability" EntitySet="Ability" />
+            <End Role="Hero" EntitySet="Hero" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Hero_dbo_Weapon_WeaponID" Association="Self.FK_dbo_Hero_dbo_Weapon_WeaponID">
+            <End Role="Weapon" EntitySet="Weapon" />
+            <End Role="Hero" EntitySet="Hero" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="OverwatchDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Ability">
+          <Key>
+            <PropertyRef Name="AbilityID" />
+          </Key>
+          <Property Name="AbilityID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Duration" Type="Double" />
+          <Property Name="Strenght" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Heroes" Relationship="Self.FK_dbo_Hero_dbo_Ability_AbilityID" FromRole="Ability" ToRole="Hero" />
+        </EntityType>
+        <EntityType Name="Hero">
+          <Key>
+            <PropertyRef Name="HeroID" />
+          </Key>
+          <Property Name="HeroID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="WeaponID" Type="Int32" Nullable="false" />
+          <Property Name="AbilityID" Type="Int32" Nullable="false" />
+          <Property Name="Health" Type="Int32" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ability" Relationship="Self.FK_dbo_Hero_dbo_Ability_AbilityID" FromRole="Hero" ToRole="Ability" />
+          <NavigationProperty Name="Weapon" Relationship="Self.FK_dbo_Hero_dbo_Weapon_WeaponID" FromRole="Hero" ToRole="Weapon" />
+        </EntityType>
+        <EntityType Name="Weapon">
+          <Key>
+            <PropertyRef Name="WeaponID" />
+          </Key>
+          <Property Name="WeaponID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Ammo" Type="Byte" />
+          <Property Name="ReloadTime" Type="Double" />
+          <Property Name="Damage_Heal" Type="Int32" Nullable="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Heroes" Relationship="Self.FK_dbo_Hero_dbo_Weapon_WeaponID" FromRole="Weapon" ToRole="Hero" />
+        </EntityType>
+        <Association Name="FK_dbo_Hero_dbo_Ability_AbilityID">
+          <End Role="Ability" Type="Self.Ability" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Hero" Type="Self.Hero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ability">
+              <PropertyRef Name="AbilityID" />
+            </Principal>
+            <Dependent Role="Hero">
+              <PropertyRef Name="AbilityID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Hero_dbo_Weapon_WeaponID">
+          <End Role="Weapon" Type="Self.Weapon" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Hero" Type="Self.Hero" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Weapon">
+              <PropertyRef Name="WeaponID" />
+            </Principal>
+            <Dependent Role="Hero">
+              <PropertyRef Name="WeaponID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="OverwatchDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Abilities" EntityType="Self.Ability" />
+          <EntitySet Name="Heroes" EntityType="Self.Hero" />
+          <EntitySet Name="Weapons" EntityType="Self.Weapon" />
+          <AssociationSet Name="FK_dbo_Hero_dbo_Ability_AbilityID" Association="Self.FK_dbo_Hero_dbo_Ability_AbilityID">
+            <End Role="Ability" EntitySet="Abilities" />
+            <End Role="Hero" EntitySet="Heroes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Hero_dbo_Weapon_WeaponID" Association="Self.FK_dbo_Hero_dbo_Weapon_WeaponID">
+            <End Role="Weapon" EntitySet="Weapons" />
+            <End Role="Hero" EntitySet="Heroes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="OverwatchDBModelStoreContainer" CdmEntityContainer="OverwatchDBEntities">
+          <EntitySetMapping Name="Abilities">
+            <EntityTypeMapping TypeName="OverwatchDBModel.Ability">
+              <MappingFragment StoreEntitySet="Ability">
+                <ScalarProperty Name="AbilityID" ColumnName="AbilityID" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Strenght" ColumnName="Strenght" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Heroes">
+            <EntityTypeMapping TypeName="OverwatchDBModel.Hero">
+              <MappingFragment StoreEntitySet="Hero">
+                <ScalarProperty Name="HeroID" ColumnName="HeroID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="WeaponID" ColumnName="WeaponID" />
+                <ScalarProperty Name="AbilityID" ColumnName="AbilityID" />
+                <ScalarProperty Name="Health" ColumnName="Health" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Weapons">
+            <EntityTypeMapping TypeName="OverwatchDBModel.Weapon">
+              <MappingFragment StoreEntitySet="Weapon">
+                <ScalarProperty Name="WeaponID" ColumnName="WeaponID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Ammo" ColumnName="Ammo" />
+                <ScalarProperty Name="ReloadTime" ColumnName="ReloadTime" />
+                <ScalarProperty Name="Damage_Heal" ColumnName="Damage/Heal" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
