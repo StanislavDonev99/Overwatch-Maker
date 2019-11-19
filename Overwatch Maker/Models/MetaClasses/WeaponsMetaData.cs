@@ -19,7 +19,7 @@ namespace Overwatch_Maker.Models
         [Display(Name="Reload Time")]
         public Nullable<double> ReloadTime { get; set; }
 
-        [Range(0, 100)]
+        [Range(0, 500)]
         [Display(Name = "Damage/Heal")]
         public int Damage_Heal { get; set; }
     }

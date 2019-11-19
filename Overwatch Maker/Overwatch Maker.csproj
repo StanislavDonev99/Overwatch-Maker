@@ -169,6 +169,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Controllers\AbilitiesController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -299,6 +300,11 @@
     <Content Include="Views\Weapons\Details.cshtml" />
     <Content Include="Views\Weapons\Edit.cshtml" />
     <Content Include="Views\Weapons\Index.cshtml" />
+    <Content Include="Views\Abilities\Create.cshtml" />
+    <Content Include="Views\Abilities\Delete.cshtml" />
+    <Content Include="Views\Abilities\Details.cshtml" />
+    <Content Include="Views\Abilities\Edit.cshtml" />
+    <Content Include="Views\Abilities\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
