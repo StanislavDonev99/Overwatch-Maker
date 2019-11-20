@@ -57,18 +57,15 @@
     {
         @Html.AntiForgeryToken()
 
-<div class="form-actions row">
-    <div class="col-md-6">
-        <a href='@Url.Action("Index", "Abilities")' class="btn btn-primary"> <span class="glyphicon glyphicon-chevron-left"> </span> Back to List</a>
-    </div>
-    <div class="col-md-6" style="text-align: right;">
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete Ability" class="btn btn-danger" />
+        <div class="form-actions row">
+            <div class="col-md-6">
+                <a href='@Url.Action("Index", "Abilities")' class="btn btn-primary"> <span class="glyphicon glyphicon-chevron-left"> </span> Back to List</a>
+            </div>
+            <div class="col-md-6" style="text-align: right;">
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete Ability" class="btn btn-danger" />
+                </div>
+            </div>
         </div>
-    </div>
-</div>
-
-       
-
     }
 </div>

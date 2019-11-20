@@ -9,7 +9,7 @@ namespace Overwatch_Maker.Models
     public class WeaponsMetaData
     {
         
-        [StringLength(50)]
+        [StringLength(30)]
         public string Name { get; set; }
 
         [Range(0, 100)]
@@ -22,6 +22,8 @@ namespace Overwatch_Maker.Models
         [Range(0, 500)]
         [Display(Name = "Damage/Heal")]
         public int Damage_Heal { get; set; }
+
+
     }
 
     [MetadataType(typeof(WeaponsMetaData))]

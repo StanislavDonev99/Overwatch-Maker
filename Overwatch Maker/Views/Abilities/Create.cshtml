@@ -12,10 +12,10 @@
     <strong>WoW!</strong> &nbsp; You are about to create a new ability. &nbsp; Can you handle the power?
 </div>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })

@@ -77,7 +77,11 @@
     </div>
 </div>
 
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.WeaponID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="row">
+    <div class="col-md-6">
+        <a href='@Url.Action("Index", "Weapons")' class="btn btn-primary"> <span class="glyphicon glyphicon-chevron-left"> </span> Back to List</a>
+    </div>
+    <div class="col-md-6" style="text-align: right;">
+        @Html.ActionLink("Edit Weapon", "Edit", new { id = Model.WeaponID }, new { @class = "btn btn-warning" })
+    </div>
+</div>
