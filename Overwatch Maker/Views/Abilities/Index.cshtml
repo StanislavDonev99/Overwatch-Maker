@@ -5,6 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<br />
 <h2>Abilities</h2>
 
 <p>
@@ -48,6 +49,8 @@
             @Html.DisplayFor(modelItem => item.Strenght)
         </td>
         <td>
+
+
             @Html.ActionLink("Edit", "Edit", new { id=item.AbilityID }) |
             @Html.ActionLink("Details", "Details", new { id=item.AbilityID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.AbilityID })

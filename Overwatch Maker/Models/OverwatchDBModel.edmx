@@ -22,7 +22,7 @@
           </Key>
           <Property Name="HeroID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-          <Property Name="Role" Type="nchar" MaxLength="10" />
+          <Property Name="Role" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="WeaponID" Type="int" Nullable="false" />
           <Property Name="AbilityID" Type="int" Nullable="false" />
           <Property Name="Health" Type="int" Nullable="false" />
@@ -103,7 +103,7 @@
           </Key>
           <Property Name="HeroID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Role" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Role" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="WeaponID" Type="Int32" Nullable="false" />
           <Property Name="AbilityID" Type="Int32" Nullable="false" />
           <Property Name="Health" Type="Int32" Nullable="false" />

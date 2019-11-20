@@ -23,8 +23,9 @@
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     <li>@Html.ActionLink("Weapons", "Index", "Weapons")</li>
+                    <li>@Html.ActionLink("Abilities", "Index", "Abilities")</li>
+                    <li>@Html.ActionLink("Heroes", "Index", "Heroes")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -34,7 +35,9 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - Overwatch Maker</p>
+            <p>&copy; @DateTime.Now.Year - Overwatch Maker by Stanislav Donev</p>
+            <p><span class="glyphicon glyphicon-send"></span> &nbsp; donev.stanislavv@gmail.com</p>
+            <p><span class="glyphicon glyphicon-phone-alt"></span> &nbsp; +359 895 955 205</p>
         </footer>
     </div>
 

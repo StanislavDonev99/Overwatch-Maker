@@ -5,15 +5,19 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
-
+<br />
+<h2>Edit Ability</h2>
+<div class="alert alert-dismissible alert-warning">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <span class="glyphicon glyphicon-wrench" aria-hidden="true"> </span>
+    &nbsp; Something wrong? &nbsp; Are you sure you want to edit ability "<strong>@Html.DisplayFor(model => model.Name)</strong>" ?
+</div>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Ability</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.AbilityID)
@@ -60,14 +64,14 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Save Edit" class="btn btn-success" />
             </div>
         </div>
     </div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    <a href='@Url.Action("Index", "Abilities")' class="btn btn-primary"> <span class="glyphicon glyphicon-chevron-left"> </span> Back to List</a>
 </div>
 
 @section Scripts {

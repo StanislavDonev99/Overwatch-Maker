@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<br />
+<h2>Ability Details</h2>
 
 <div>
-    <h4>Ability</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -53,7 +53,20 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.AbilityID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="progress progress-striped active">
+    <div class="progress-bar progress-bar-info" style="width: 60%"></div>
+</div>
+
+<div class="progress progress-striped active">
+    <div class="progress-bar progress-bar-danger" style="width: 80%"></div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <a href='@Url.Action("Index", "Abilities")' class="btn btn-primary"> <span class="glyphicon glyphicon-chevron-left"> </span> Back to List</a>
+    </div>
+    <div class="col-md-6" style="text-align: right;">
+        @Html.ActionLink("Edit Ability", "Edit", new { id = Model.AbilityID }, new { @class = "btn btn-warning" })
+    </div>
+</div>
