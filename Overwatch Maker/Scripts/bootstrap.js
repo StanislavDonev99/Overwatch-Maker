@@ -2577,4 +2577,9 @@ if (typeof jQuery === 'undefined') {
     })
   })
 
+    function savePath() {
+        var x = document.getElementById("path").value;
+        document.getElementById("showPath").innerHTML = x;
+    }
+
 }(jQuery);

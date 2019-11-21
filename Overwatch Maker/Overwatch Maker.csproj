@@ -187,6 +187,8 @@
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MetaClasses\AbilityMetaData.cs" />
+    <Compile Include="Models\MetaClasses\HeroMetaData.cs" />
     <Compile Include="Models\MetaClasses\WeaponsMetaData.cs" />
     <Compile Include="Models\OverwatchDBModel.Context.cs">
       <AutoGen>True</AutoGen>

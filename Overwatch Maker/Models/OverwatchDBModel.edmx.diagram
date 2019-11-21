@@ -5,7 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="8cc8387997cb4a29ac610cba75a3a0ac" Name="Diagram1">
-        <EntityTypeShape EntityType="OverwatchDBModel.Ability" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="OverwatchDBModel.Ability" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
         <EntityTypeShape EntityType="OverwatchDBModel.Hero" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="OverwatchDBModel.Weapon" Width="1.5" PointX="5.5" PointY="1.25" IsExpanded="true" />
         <AssociationConnector Association="OverwatchDBModel.FK_dbo_Hero_dbo_Ability_AbilityID" ManuallyRouted="false" />
