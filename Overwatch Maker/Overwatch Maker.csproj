@@ -217,6 +217,11 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\HeroImages\jankrat.png" />
+    <Content Include="Content\HeroImages\reaper.png" />
+    <Content Include="Content\HeroImages\reinhardt.png" />
+    <Content Include="Content\HeroImages\tracer.png" />
+    <Content Include="Content\Site.js" />
     <Content Include="Content\SlideShowImages\ow1.jpg" />
     <Content Include="Content\SlideShowImages\ow2.jpg" />
     <Content Include="Content\SlideShowImages\ow3.jpg" />
@@ -316,7 +321,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\HeroImages\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

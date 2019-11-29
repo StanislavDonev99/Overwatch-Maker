@@ -12,9 +12,9 @@
     @Html.ActionLink("Create New", "Create")
 </p>
 
-<table class="table">
-    <tr>
-        <th>
+<table class="table" >
+    <tr class="success" style="font-size: 18px">
+        <th style="border-radius: 15px 0 0 0px;">
             @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
@@ -32,12 +32,12 @@
         <th>
             @Html.DisplayNameFor(model => model.Image)
         </th>
-        <th></th>
+        <th style="border-radius: 0px 0px 30px 0;"> Options</th>
     </tr>
-        
+
     @foreach (var item in Model)
     {
-        <tr>
+        <tr style="font-size: 18px;">
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
@@ -66,3 +66,6 @@
     }
 
 </table>
+
+
+    

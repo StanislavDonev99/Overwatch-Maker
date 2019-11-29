@@ -8,7 +8,11 @@ namespace Overwatch_Maker.Models
 {
     public class HeroMetaData
     {
+        [Display(Name ="Weapon")]
+        public int WeaponID { get; set; }
 
+        [Display(Name = "Ability")]
+        public int AbilityID { get; set; }
 
     }
 

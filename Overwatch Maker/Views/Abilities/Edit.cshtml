@@ -60,7 +60,10 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Strenght, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Strenght, new { htmlAttributes = new { @class = "form-control" } })
+                <div class="slidecontainer" style="margin-top: 12px;">
+                    <input type="range" min="1" max="500" value='@Model.Strenght' class="slider" id="myRange" name="Strenght" oninput="showRange.value = myRange.value">
+                    <output id="showRange" style="color: white;"></output>
+                </div>
                 @Html.ValidationMessageFor(model => model.Strenght, "", new { @class = "text-danger" })
             </div>
         </div>

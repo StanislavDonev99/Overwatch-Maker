@@ -15,7 +15,6 @@ namespace Overwatch_Maker.Models
         [Required]
         public string Description { get; set; }
 
-        [Required]
         public Nullable<double> Duration { get; set; }
 
         [Required]

@@ -26,7 +26,7 @@
           <Property Name="WeaponID" Type="int" Nullable="false" />
           <Property Name="AbilityID" Type="int" Nullable="false" />
           <Property Name="Health" Type="int" Nullable="false" />
-          <Property Name="Image" Type="nvarchar(max)" />
+          <Property Name="Image" Type="nvarchar(max)" Nullable="false" />
         </EntityType>
         <EntityType Name="Weapon">
           <Key>
@@ -107,7 +107,7 @@
           <Property Name="WeaponID" Type="Int32" Nullable="false" />
           <Property Name="AbilityID" Type="Int32" Nullable="false" />
           <Property Name="Health" Type="Int32" Nullable="false" />
-          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Ability" Relationship="Self.FK_dbo_Hero_dbo_Ability_AbilityID" FromRole="Hero" ToRole="Ability" />
           <NavigationProperty Name="Weapon" Relationship="Self.FK_dbo_Hero_dbo_Weapon_WeaponID" FromRole="Hero" ToRole="Weapon" />
         </EntityType>
